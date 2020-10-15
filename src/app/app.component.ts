@@ -16,6 +16,12 @@ export class AppComponent {
     if(!price || !discount){
       this.result = "Error: Please fill out both fields"
     }
+    else if(discount > 100 || discount < 0){
+      this.result = "Error: Your discount must be between 0 and 100%"
+    }
+    else if(price < 0){
+      this.result = "Error: You cannot have a negative number for the price"
+    }
     else{
     let savings = (price * (discount / 100));
     this.finalPrice = price - savings;
